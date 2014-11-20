@@ -64,6 +64,13 @@ while (infoLine.hasNext();
 	newGrade = parser.next();
 	newHasBeenAdvised = parser.next();
 	newAdvisingDate = parser.next();
+		/*
+	Parser assumes text file has the following format:
+	Each student's info is separated by a new line.
+	Each segment of a student's information is immediately
+	 followed by the "&" as a delimiter.
+	The order of the information is name, ID, grade, if they have been advised, date of advising.
+	*/
 	int format=newHasBeenAdvised.Length();
 	char firstSymbol = newHasBeenAdvised.charAt(0);
 	int beenAdvised;
@@ -79,13 +86,12 @@ while (infoLine.hasNext();
 		newAdvisingDate = "NaN";
 		}
 	/*
-	Parser assumes text file has the following format:
-	Each student's info is separated by a new line.
-	Each segment of a student's information is immediately
-	 followed by the "&" as a delimiter.
-	The order of the information is name, ID, grade, if they have been advised, date of advising.
+	this section checks the format of newHasBeenAdvised, to make sure that the information is in the right format. 
+	if it is the right size, and a 1 is the symbol there, then it puts 1 in the student information.
+	Otherwise, the if....else statements put a 0 for student advising(signifying that they haven't), 
+	and clears any data about the advising date
 	*/
-	StudentList.add(new Student(newName, newID, newGrade, newHasBeenAdvised, AdvisingDate));
+	StudentList.add(new Student(newName, newID, newGrade, beenAdvised, AdvisingDate));
 	//A student is added to the StudentList after each line is scanned.
 	}
 }}

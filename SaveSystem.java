@@ -2,6 +2,10 @@
 * contains information for the student class. 
 */
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter; 
+
 public class SaveSystem{
   private String studentInfo;
   private int lLSize; //size of the linked list

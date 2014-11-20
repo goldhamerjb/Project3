@@ -1,34 +1,42 @@
 /*
-created 11/19/2014
-imports information describing a Student User from a text file
+created 11/9/2014
+Imports information describing a list of Students from a text file.
+Information for each student is scanned and the student is added to
+ the StudentList.
 */
-import java.util.Scanner;   //These import statements will likely be 
-import java.io.*;           //moved to parent class in future.
+import java.util.Scanner;
+import java.io.*;
+
 
 public void importStudentInfo(File stuInfo)
 //Accepts a text file containing student information.
 {
 File studentInformation = stuInfo;
 Scanner infoReader = new Scanner(studentInformation);
-/*
-Scanner assumes the text file is formatted with the following parameters:
-Each piece of information is separated by a new line in the text file.
-Each piece is not preceded by unnecessary text, for example a label.
-The information is ordered as follows: Name of Student, Student ID, and 
- student grade. If the student has advising information, the next two lines
- will be the integer denoting advising status and the advising date.
-*/
-if(infoReader.hasNext())
-	{studentName = infoReader.nextLine();}
-if(infoReader.hasNext())
-	{studentID = infoReader.nextLine();}
-if(infoReader.hasNext())
-	{grade = infoReader.nextLine();}
-/*If the student has no advising information in the text file, the associated
- variables will not be altered.
-*/
-if(infoReader.hasNext())
-	{hasbeenAdvised = infoReader.nextInt();}
-if(infoReader.hasNext())
-	{advisingDate = infoReader.nextLine();}	
+//Creates scanner for text file.
+
+String infoLine = new String;
+Scanner parser = new Scanner(infoLine);
+//Creates scanner to parse strings from file.
+while (infoReader.hasNext())
+{
+String newName, newID, newGrade; //Variable to hold new info
+while (infoLine.hasNext();
+	{
+	infoLine = infoReader.nextLine();
+	parser.useDelimiter("&");
+	newName = parser.next();
+	newID = parser.next();
+	newGrade = parser.next();
+	/*
+	Parser assumes text file has the following format:
+	Each student's info is separated by a new line.
+	Each segment of a student's information is immediately
+	 followed by the "&" as a delimiter.
+	The order of the information is name, ID, then grade.
+	*/
+	StudentList.add(new Student(newName, newID, newGrade));
+	//A student is added to the StudentList after each line is scanned.
+	}
+}
 }

@@ -54,7 +54,7 @@ public void setStudentName(String studentName)
 public void setStudentId(String studentID)
 {this.studentID = studentID;}
 
-public void setGrade()
+public void setGrade(String grade)
 {grade = grade;} 
 
 public void setHasBeenAdvised(int hasBeenAdvised)

@@ -81,4 +81,19 @@ public class CLLQueue<T> implements LLQueueInterface<T> {
 
 		return list;
 	}
+	
+	public String toPrintString() {
+		String list = "";
+		try {
+			current = rear.getLink();
+		} catch (NullPointerException e) {
+			return list;
+		}
+		do {
+			list += current.getData() + " ";
+			current = current.getLink();
+		} while (current != rear.getLink());
+
+		return list;
+	}
 }

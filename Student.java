@@ -15,7 +15,7 @@ private String advisingDate;
 *for example, a Student id number can have any symbol in it, not just numbers.
 */
 
-public student (String studentname, String StudentID, String grade)//this is the basic constructor when makin a new student from the program
+public student (String studentname, String studentID, String grade)//this is the basic constructor when makin a new student from the program
 {
 this.studentName=studentName;
 this.studentId=studentID;
@@ -24,7 +24,7 @@ hasbeenAdvised=0;
 advisingDate="NaN";
 }
 
-public student (String studentname, String StudentID, String grade, int hasBeenAdvised, String advisingDate)
+public student (String studentname, String studentID, String grade, int hasBeenAdvised, String advisingDate)
 {
 this.studentName=studentName;
 this.studentId=studentID;

@@ -38,8 +38,7 @@ import javafx.util.Callback;
 
 
 
-/**
- *
+/*
  * @author Goldhamer-Laptop
  */
 
@@ -61,7 +60,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML private ChoiceBox editInputGrade;
     @FXML private TextField editAdviseDate;
     @FXML private CheckBox editAdvised;
-    private StuLinkedList stulist = new StuLinkedList();
+    StuLinkedList stuList = new StuLinkedList();
     private File file;
 
     
@@ -178,29 +177,14 @@ public class FXMLDocumentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
 //        stulist.getSize();
-        
 
-        
-//String[][] studentArray = {{"nice to ", "have", "tittles", "have", "titles"},
-//						 {"a", "b", "c","have", "titles"},
-//						 {"d", "e", "f","have", "titles"}};
-//ObservableList<String[]> data = FXCollections.observableArrayList();
-//data.addAll(Arrays.asList(studentArray));
-//data.remove(0);//remove titles from data
-//TableView<String[]> table = new TableView<>();
-//for (int i = 0; i < staffArray[0].length; i++) {
-//	TableColumn tc = new TableColumn(staffArray[0][i]);
-//	final int colNo = i;
-//	tc.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<String[], String>, ObservableValue<String>>() {
-//		@Override
-//		public ObservableValue<String> call(TableColumn.CellDataFeatures<String[], String> p) {
-//			return new SimpleStringProperty((p.getValue()[colNo]));
-//		}
-//	});
-//	tc.setPrefWidth(90);
-//	table.getColumns().add(tc);
-//}
-//        studTable.setItems(data);
+        //String[][] studentArray = stuList.toArray();
+        String[][] studentArray = {{"a", "b", "c", "d", "e"}, {"dd", "dd", "dd", "dd", "dd"},  {"dd", "dd", "dd", "dd", "dd"}};
+    
+        ObservableList<String[]> data = FXCollections.observableArrayList();
+        data.addAll(Arrays.asList(studentArray));
+        TableView<String[]> table = new TableView<>();
+        studTable.setItems(data);
 
      
         

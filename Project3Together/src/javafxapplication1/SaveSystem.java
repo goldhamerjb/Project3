@@ -42,7 +42,7 @@ public class SaveSystem{
             for (int i = 0; i < lLSize; i++)
                 {
                  String studentInfo;
-                 studentInfo=prinArray[i][1]+""+prinArray[i][2]+""+prinArray[i][3]+""+prinArray[i][4]+""+prinArray[i][5]+"";
+                 studentInfo=prinArray[i][1]+"&"+prinArray[i][2]+"&"+prinArray[i][3]+"&"+prinArray[i][4]+"&"+prinArray[i][5]+"";
     		outfile.print(studentInfo);
     		if (i != lLSize-1)
     			outfile.println( );

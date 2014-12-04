@@ -26,14 +26,15 @@ public class SaveSystem{
   public void WriteToFile(StuLinkedList<String>  tree)
     {PrintWriter outfile = null;
 	    String outfileName = currentRoster + ".txt";
-	    lLSize = StuLinkedList.getSize();          
+	    lLSize = StuLinkedList.getSize();  
+            String disclaimer = "&//This is the file containing the student information for the Advising program";
             if (lLSize > 0) //if size is less than 0, no need to print, and printing would cause errors
 	    	{
                 String prinArray [][] =tree.toArray().clone();
                 try
 	      	{
 	      		outfile = new PrintWriter(outfileName); //sets up printer to write the info to the text file
-	     		outfile.print(studentInfo); //prints to the file	
+	     		outfile.print(disclaimer);	
 	      	}
 	      
 	      catch (FileNotFoundException ex)
@@ -42,7 +43,7 @@ public class SaveSystem{
             for (int i = 0; i < lLSize; i++)
                 {
                  String studentInfo;
-                 studentInfo=prinArray[i][1]+""+prinArray[i][2]+""+prinArray[i][3]+""+prinArray[i][4]+""+prinArray[i][5]+"";
+                 studentInfo=prinArray[i][1]+"&"+prinArray[i][2]+"&"+prinArray[i][3]+"&"+prinArray[i][4]+"&"+prinArray[i][5]+"";
     		outfile.print(studentInfo);
     		if (i != lLSize-1)
     			outfile.println( );

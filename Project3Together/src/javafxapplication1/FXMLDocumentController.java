@@ -19,6 +19,7 @@ import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -27,11 +28,13 @@ import javafx.scene.Group;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.util.Callback;
 
@@ -53,7 +56,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML private Text importPath;
     @FXML private RadioButton radioInput;
     @FXML private ToggleGroup radioButtons;
-    @FXML private TableView studTable;
+//    @FXML private TableView studTable;
     
     @FXML private TextField editInputName;      //edit tab
     @FXML private TextField editInputID;
@@ -63,7 +66,13 @@ public class FXMLDocumentController implements Initializable {
     StuLinkedList stuList = new StuLinkedList();
     private File file;
 
-    
+    @FXML private TableView studTable;
+    @FXML private TableColumn columnName;
+    @FXML private TableColumn columnID;
+    @FXML private TableColumn columnGrade;
+    @FXML private TableColumn columnAdvised;
+    @FXML private TableColumn columnAdvisedDate;
+
 
     @FXML
     // Disable appropriate buttons
@@ -176,20 +185,27 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-//        stulist.getSize();
 
         //String[][] studentArray = stuList.toArray();
         String[][] studentArray = {{"a", "b", "c", "d", "e"}, {"dd", "dd", "dd", "dd", "dd"},  {"dd", "dd", "dd", "dd", "dd"}};
-    
-        ObservableList<String[]> data = FXCollections.observableArrayList();
+
+
+  
+        ObservableList<String[]> data = FXCollections.observableArrayList(studentArray);
         data.addAll(Arrays.asList(studentArray));
-        TableView<String[]> table = new TableView<>();
+ //       TableView<String[]> table = new TableView<>();
+ //       UserId.setCellfactory();
         studTable.setItems(data);
 
-     
         
         //TODO Edit Tab populate list  :   setItems(ObservableList<T> value)
         
+
+        
+        
+        
+        
+
     }    
     
 }

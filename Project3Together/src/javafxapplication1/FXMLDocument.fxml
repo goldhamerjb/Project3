@@ -17,15 +17,15 @@
         <tabs>
           <Tab  text="Students">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0"  prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="studTable" prefHeight="369.0" prefWidth="563.0">
+                        <TableView fx:id="studTable"  prefHeight="369.0" prefWidth="563.0">
                           <columns>
-                            <TableColumn prefWidth="200.0" text="Name" />
-                            <TableColumn minWidth="0.0" prefWidth="78.0" text="ID" />
-                            <TableColumn minWidth="0.0" prefWidth="99.0" text="Grade" />
-                            <TableColumn minWidth="0.0" prefWidth="85.0" text="Advised?" />
-                            <TableColumn prefWidth="100.0" text="Date Advised" />
+                            <TableColumn fx:id="columnName" prefWidth="200.0" text="Name" />
+                            <TableColumn fx:id="columnID" minWidth="0.0" prefWidth="78.0" text="ID" />
+                            <TableColumn fx:id="columnGrade" minWidth="0.0" prefWidth="99.0" text="Grade" />
+                            <TableColumn fx:id="columnAdvised" minWidth="0.0" prefWidth="85.0" text="Advised?" />
+                            <TableColumn fx:id="columnAdvisedDate" prefWidth="100.0" text="Date Advised" />
                           </columns>
                         </TableView>
                      </children>

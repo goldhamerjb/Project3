@@ -6,10 +6,23 @@
 package javafxapplication1;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import java.util.Arrays;
+import javafx.application.Application;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TableColumn.CellDataFeatures;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+import javafx.util.Callback;
 
 /**
  *
@@ -26,6 +39,11 @@ public class JavaFXApplication1 extends Application {
         stage.setScene(scene);
         stage.setTitle("Advising System Pro");
         stage.show();
+        
+        
+        
+        
+   
     }
 
     /**

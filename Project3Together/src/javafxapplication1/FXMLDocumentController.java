@@ -18,13 +18,22 @@ import javafx.stage.FileChooser;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.Group;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.FileChooser.ExtensionFilter;
+import javafx.util.Callback;
 
 
 
@@ -46,6 +55,13 @@ public class FXMLDocumentController implements Initializable {
     @FXML private RadioButton radioInput;
     @FXML private ToggleGroup radioButtons;
     @FXML private TableView studTable;
+    
+    @FXML private TextField editInputName;      //edit tab
+    @FXML private TextField editInputID;
+    @FXML private ChoiceBox editInputGrade;
+    @FXML private TextField editAdviseDate;
+    @FXML private CheckBox editAdvised;
+    private StuLinkedList stulist = new StuLinkedList();
     private File file;
 
     
@@ -91,6 +107,13 @@ public class FXMLDocumentController implements Initializable {
         //TODO pass to theo's stuff
     }
     
+        @FXML
+    private void adviseSave(ActionEvent event) {
+        //TODO save date to linked list
+            
+        
+    }
+        
     @FXML   //Clear Name, ID, Grade Level, and input file
     private void addClear(ActionEvent event) {
         textInputName.setText("");
@@ -108,15 +131,80 @@ public class FXMLDocumentController implements Initializable {
         File file = chooser.showOpenDialog(new Stage());
         importPath.setText(file.getName());
     }
+        
+    //EDIT TAB
     
-    
-    
+    @FXML
+    private void editSave(ActionEvent event) {
+        //TODO
+            
+        
+    }
+
+    @FXML
+    private void editGetData(ActionEvent event) {
+        //TODO 
+        
+        // remove if id changes
+        // edit if not
+
+//        int i = selectionmodel place
+//        editInputName.setText(array[i][0]);
+//        editInputID.setText(array[i][1]);
+//        editAdviseDate.setText(array[i][4]);
+//        if (array[i][3][.equals("1")){
+//            editAdvised.setSelected(true);
+//        }
+//        else { editAdvised.setSelected(false); }
+
+//        switch (array[i][2]) {
+//             case "Freshman":
+//             editInputGrade.getSelectionModel().select(0);
+//             break;             
+//             case "Sophomore":
+//             editInputGrade.getSelectionModel().select(1);
+//             break;             
+//             case "Junior":
+//             editInputGrade.getSelectionModel().select(2);
+//             break;             
+//             case "Senior":
+//             editInputGrade.getSelectionModel().select(3);
+//             break;
+    }
     
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+//        stulist.getSize();
+        
+
+        
+//String[][] studentArray = {{"nice to ", "have", "tittles", "have", "titles"},
+//						 {"a", "b", "c","have", "titles"},
+//						 {"d", "e", "f","have", "titles"}};
+//ObservableList<String[]> data = FXCollections.observableArrayList();
+//data.addAll(Arrays.asList(studentArray));
+//data.remove(0);//remove titles from data
+//TableView<String[]> table = new TableView<>();
+//for (int i = 0; i < staffArray[0].length; i++) {
+//	TableColumn tc = new TableColumn(staffArray[0][i]);
+//	final int colNo = i;
+//	tc.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<String[], String>, ObservableValue<String>>() {
+//		@Override
+//		public ObservableValue<String> call(TableColumn.CellDataFeatures<String[], String> p) {
+//			return new SimpleStringProperty((p.getValue()[colNo]));
+//		}
+//	});
+//	tc.setPrefWidth(90);
+//	table.getColumns().add(tc);
+//}
+//        studTable.setItems(data);
+
+     
+        
+        //TODO Edit Tab populate list  :   setItems(ObservableList<T> value)
         
     }    
     

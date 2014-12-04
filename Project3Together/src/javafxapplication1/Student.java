@@ -13,7 +13,7 @@ public class Student{
 private String studentName;
 private String studentID;
 private String grade; //this program only natively supports 4 options(freshman, sophmore, junior, senior), but more can be added
-private int hasBeenAdvised; // in this case, 0 mean not advised, 1 means has been advised
+private String hasBeenAdvised; // in this case, 0 mean not advised, 1 means has been advised
 private String advisingDate;
 /** most information is stored as strings so it is easily changable: 
 *for example, a Student id number can have any symbol in it, not just numbers.
@@ -24,7 +24,7 @@ public Student (String studentName, String studentID, String grade)//this is the
 this.studentName=studentName;
 this.studentID=studentID;
 this.grade=grade;
-hasBeenAdvised=0;
+hasBeenAdvised= "0";
 advisingDate="NaN";
 }
 
@@ -40,12 +40,12 @@ int length = advised.length();
 		{
 			char firstSymbol = advised.charAt(0);
 		if (firstSymbol=='1')
-			{hasBeenAdvised = 1;}
+			{hasBeenAdvised = "1";}
 		else 
-			{hasBeenAdvised = 0;}
+			{hasBeenAdvised = "0";}
 	}
 	else 
-		{hasBeenAdvised = 0;}
+		{hasBeenAdvised = "0";}
 } //this constructor works for students who have been advised
 
 public String getStudentName()
@@ -57,7 +57,7 @@ public String getStudentId()
 public String getGrade()
 {return grade;} 
 
-public int getHasBeenAdvised()
+public String getHasBeenAdvised()
 {return hasBeenAdvised;}
 
 public String getAdvisingDate()
@@ -72,7 +72,7 @@ public void setStudentId(String studentID)
 public void setGrade(String grade)
 {this.grade = grade;} 
 
-public void setHasBeenAdvised(int hasBeenAdvised)
+public void setHasBeenAdvised(String hasBeenAdvised)
 {this.hasBeenAdvised = hasBeenAdvised;}
 
 public void setAdvisingDate(String advisingDate)

@@ -9,33 +9,30 @@ package javafxapplication1;
  *
  * @author Theodore
  */
-
-
-import javafxapplication1.LinkedListNode;
-import javafxapplication1.DataNotFoundException;
-import javafxapplication1.EmptyLinkedListException;
-
 public class StuLinkedList<T extends Comparable<T>> {
-	LinkedListNode<T> root;
+	LinkedListNode<T> root, start;
 	static int length;
 	boolean found = false;
 
 	public StuLinkedList() {
 		root = null;
+                start = null;
 		length = 0;
 	}
-
+        
 	public void ChangeData(T data, T data2, T data3)
 		{
 		root = recChangeData(data, data2, data3, this.root);
 		}
-	
 	private LinkedListNode<T> recChangeData(T data, T data2, T data3, LinkedListNode<T> tree) {
 		// not finished, should edit data
 		if (tree == null) {
 			tree = new LinkedListNode<T>(data, data2, data3);
+                        start = tree;
 		} else if (data2.compareTo(tree.getData2()) < 0) {
 			tree.setLeft(recAdd(data, data2, data3, tree.getLeft()));
+                        if (data2.compareTo(start.getData2()) < 0)
+                            {start = tree;}
 		} else if (data2.compareTo(tree.getData2()) > 0) {
 			tree.setRight(recAdd(data, data2, data3, tree.getRight()));
 		}
@@ -52,8 +49,11 @@ public class StuLinkedList<T extends Comparable<T>> {
 		// uses recursion to put class in order according to user id.
 		if (tree == null) {
 			tree = new LinkedListNode<T>(data, data2, data3, data4, data5);
+                        start = tree;
 		} else if (data2.compareTo(tree.getData2()) < 0) {
 			tree.setLeft(recAddFull(data, data2, data3, data4, data5, tree.getLeft()));
+                        if (data2.compareTo(start.getData2()) < 0)
+                            {start = tree;}
 		} else if (data2.compareTo(tree.getData2()) > 0) {
 			tree.setRight(recAddFull(data, data2, data3, data4, data5, tree.getRight()));
 		}
@@ -70,9 +70,12 @@ public class StuLinkedList<T extends Comparable<T>> {
 		// checks to make sure no duplicate items(based on select data)
 		// uses recursion to check entire list
 		if (tree == null) {
-			tree = new LinkedListNode<T>(data, data2, data3);
-		} else if (data2.compareTo(tree.getData2()) < 0) {
+                        tree = new LinkedListNode<T>(data, data2, data3);
+                        start = tree;
+                } else if (data2.compareTo(tree.getData2()) < 0) {
 			tree.setLeft(recAdd(data, data2, data3, tree.getLeft()));
+                        if (data2.compareTo(start.getData2()) < 0)
+                            {start = tree;}
 		} else if (data2.compareTo(tree.getData2()) > 0) {
 			tree.setRight(recAdd(data, data2, data3, tree.getRight()));
 		}
@@ -84,7 +87,7 @@ public class StuLinkedList<T extends Comparable<T>> {
 		// this method only passes on information to private methods
 		if (!isEmpty()) {
 			try {
-				root = recRemove(data2, this.root);
+                            root = recRemove(data2, this.root);
 			} catch (DataNotFoundException e) { 
 			}
 		} else {
@@ -104,6 +107,8 @@ public class StuLinkedList<T extends Comparable<T>> {
 			tree.setRight(recRemove(data2, tree.getRight()));
 		} else {
 			found = true;
+                         if (data2.compareTo(start.getData2()) < 0)
+                            {start = tree.getRight();}
 			tree = removeNode(tree);
 
 		}
@@ -165,20 +170,20 @@ public class StuLinkedList<T extends Comparable<T>> {
 		return (root == null);
 	}
 
-	public String toPrintString() //sends formated string to other methods for printing
-	{ String printString = "";
-		printString = makePrintString(this.root); //uses this format to keep LInked List functions in the Linked List
-		return printString;}
-	
-	public String makePrintString(LinkedListNode<T> tree) //formats information so that it can be written into a text file
-		{String printString = "";
-		if (tree != null) {
-			makePrintString(tree.getLeft());
-			// Root
-			printString = tree.getData() +"&"+ tree.getData2() + "&"+ tree.getData3() + "&"+ tree.getData4() + "&"+ tree.getData5()+ "\n";
-
-			// Right
-			makePrintString(tree.getRight());
-		}return printString;}
-	
+	public String[][] toArray() //sends formated string to other methods for printing
+	{   int size = length;
+            root=start;
+            String[][] allTheInfo =  new String[size][5];
+		for(int i = 0; i <= size; i++)
+                {
+                allTheInfo[i][1] = ""+root.getData();
+                allTheInfo[i][2] = ""+root.getData2();
+                allTheInfo[i][3] = ""+root.getData3();
+                allTheInfo[i][4] = ""+root.getData4();
+                allTheInfo[i][5] = ""+root.getData5();
+                root.getLeft();
+//uses this format to keep LInked List functions in the Linked List
+                }
+                
+                return allTheInfo;}   
 	}

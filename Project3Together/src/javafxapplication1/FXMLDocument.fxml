@@ -19,12 +19,13 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView prefHeight="369.0" prefWidth="563.0">
+                        <TableView fx:id="studTable" prefHeight="369.0" prefWidth="563.0">
                           <columns>
-                            <TableColumn prefWidth="227.0" text="Name" />
-                            <TableColumn minWidth="0.0" prefWidth="99.0" text="ID" />
-                              <TableColumn minWidth="0.0" prefWidth="85.0" text="Advised?" />
-                              <TableColumn prefWidth="123.0" text="Date Advised" />
+                            <TableColumn prefWidth="200.0" text="Name" />
+                            <TableColumn minWidth="0.0" prefWidth="78.0" text="ID" />
+                            <TableColumn minWidth="0.0" prefWidth="99.0" text="Grade" />
+                            <TableColumn minWidth="0.0" prefWidth="85.0" text="Advised?" />
+                            <TableColumn prefWidth="100.0" text="Date Advised" />
                           </columns>
                         </TableView>
                      </children>

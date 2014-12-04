@@ -20,6 +20,7 @@ import java.io.File;
 import java.io.IOException;
 import javafx.scene.Group;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TableView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.ToggleGroup;
@@ -27,12 +28,12 @@ import javafx.stage.FileChooser.ExtensionFilter;
 
 
 
-//import javafx.*;
 
 /**
  *
  * @author Goldhamer-Laptop
  */
+
 public class FXMLDocumentController implements Initializable {
     
     final FileChooser fileChooser = new FileChooser();
@@ -44,6 +45,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML private Text importPath;
     @FXML private RadioButton radioInput;
     @FXML private ToggleGroup radioButtons;
+    @FXML private TableView studTable;
     private File file;
 
     

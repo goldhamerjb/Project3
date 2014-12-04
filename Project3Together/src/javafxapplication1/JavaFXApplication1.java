@@ -17,6 +17,9 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn.CellDataFeatures;
@@ -37,6 +40,23 @@ public class JavaFXApplication1 extends Application {
         stage.setScene(scene);
         stage.setTitle("Advising System Pro");
         stage.show();
+        
+        
+        
+//    Tab tabB = new Tab();
+//    tabB.setText("Tab B");
+//    StackPane tabB_stack = new StackPane();
+//    tabB_stack.setAlignment(Pos.CENTER);
+//    tabB_stack.getChildren().add(new Label("Label@Tab B"));
+//    tabB.setContent(tabB_stack);
+//    tabPane.getTabs().add(tabB);
+    
+
+        
+        
+        
+        
+        
         
     }
 

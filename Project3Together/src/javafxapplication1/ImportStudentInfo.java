@@ -16,6 +16,7 @@ package javafxapplication1;
 import java.util.Scanner;
 import java.io.*;
 public class ImportStudentInfo {
+
     
 public void importBasicInfo(File stuInfo, StuLinkedList<String>  tree)
 //Accepts a text file containing student information.
@@ -38,6 +39,8 @@ Scanner infoReader = null;
 		while (infoReader.hasNext())
 		{
 		infoLine = infoReader.nextLine();
+                if (infoLine.charAt(0)== '/')
+                    {infoLine = infoReader.nextLine();}
 		parser.useDelimiter("&");
 		newName = parser.next();
 		newID = parser.next();
@@ -57,33 +60,57 @@ Scanner infoReader = null;
 	}}
 
 
-public void importFullInfo(File stuInfo, StuLinkedList<String>  tree) //used to import a file with the full information(inculdes advising info)
+public void importFullInfo(StuLinkedList<String>  tree) throws FileNotFoundException //used to import a file with the full information(inculdes advising info)
 	{
-	File studentInformation = stuInfo;
-	Scanner infoReader = null;
+    
 
-		try {
-			infoReader = new Scanner(studentInformation);} 
-		catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();}
+            Scanner in = new Scanner(System.in);
+            FileReader inFileReader=null;
+             try {inFileReader = new FileReader("studentRoster.txt");}
+            catch (FileNotFoundException err) {System.out.println("FILE NOT FOUND");}
+            Scanner inFile = new Scanner(inFileReader);
+	
+                
 			//Creates scanner for text file.
 		String infoLine = "";
 		Scanner parser = new Scanner(infoLine);
-		//Creates scanner to parse strings from file.
+		int position = 0;
+                //Creates scanner to parse strings from file.
 		// used to import current data when program starts up
-		while (infoReader.hasNext())
+		while ( inFile.hasNext())
 			{
 				String newName, newID, newGrade, newHasBeenAdvised, newDateAdvised; //Variable to hold new info
-				while (infoReader.hasNext())
+				while ( inFile.hasNext())
 					{
-					infoLine = infoReader.nextLine();
-					parser.useDelimiter("&");
-					newName = parser.next();
-					newID = parser.next();
-					newGrade = parser.next();
-					newHasBeenAdvised=parser.next();
-					newDateAdvised=parser.next();
+
+					infoLine = inFile.nextLine();
+                                        if (infoLine.charAt(0)== '/')
+                                        {infoLine = inFile.nextLine();}
+                                    
+                                        position = infoLine.indexOf("&");
+                                        newName = infoLine.substring(0,position).trim();
+                                        infoLine = infoLine.substring(position+1, infoLine.length());
+                                        position = infoLine.indexOf("&");
+                                        newID = infoLine.substring(0,position).trim();
+                                        infoLine = infoLine.substring(position+1, infoLine.length());
+                                        position = infoLine.indexOf("&");
+                                        newGrade = infoLine.substring(0,position).trim();
+                                        infoLine = infoLine.substring(position+1, infoLine.length());
+                                        position = infoLine.indexOf("&");
+                                        newHasBeenAdvised = infoLine.substring(0,position).trim();
+                                        infoLine = infoLine.substring(position+1, infoLine.length());
+                                        position = infoLine.indexOf("&");
+                                        newDateAdvised = infoLine;
+                                                                                
+
+                                        
+                                        
+//					parser.useDelimiter("&");
+//					newName = parser.next();
+//					newID = parser.next();
+//					newGrade = parser.next();
+//					newHasBeenAdvised=parser.next();
+//					newDateAdvised=parser.next();
 					/*
 					Parser assumes text file has the following format:
 					Each student's info is separated by a new line.
@@ -95,7 +122,7 @@ public void importFullInfo(File stuInfo, StuLinkedList<String>  tree) //used to 
 					//A student is added to the StudentList after each line is scanned.
 					}
 				parser.close();
-				infoReader.close();
+				in.close();
 				}}
 			
 			

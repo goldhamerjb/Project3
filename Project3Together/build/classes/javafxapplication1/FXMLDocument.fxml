@@ -13,12 +13,13 @@
 
 <AnchorPane id="AnchorPane" prefHeight="393.0" prefWidth="557.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication1.FXMLDocumentController">
     <children>
-      <TabPane prefHeight="396.0" prefWidth="563.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="tabPane"  prefHeight="396.0" prefWidth="563.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab  text="Students">
+          <Tab fx:id="tableTab" text="Students">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0"  prefHeight="180.0" prefWidth="200.0">
-                     <children>
+ 
+<!--                  <children>
                         <TableView fx:id="studTable"  prefHeight="369.0" prefWidth="563.0">
                           <columns>
                             <TableColumn fx:id="columnName" prefWidth="200.0" text="Name" />
@@ -29,9 +30,10 @@
                           </columns>
                         </TableView>
                      </children>
-                  </AnchorPane>
+   -->               </AnchorPane>
             </content>
           </Tab>
+          <!--
           <Tab text="Advise">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -45,6 +47,7 @@
                      </children></AnchorPane>
             </content>
           </Tab>
+          -->
             <Tab text="Add Student">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -104,7 +107,7 @@
 
                         <ChoiceBox fx:id="editStudentList" layoutX="130.0" layoutY="50.0" onMouseClicked="#editGetData" prefHeight="25.0" prefWidth="244.0" />
 
-                        <Button fx:id="addDeleteButton" layoutX="450.0" layoutY="50.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Delete" />
+                        <Button fx:id="editDeleteButton" layoutX="450.0" layoutY="50.0" mnemonicParsing="false" prefHeight="25.0" onAction="#editDelete" prefWidth="60.0" text="Delete" />
                         <Text layoutX="206.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Advised Date:" />
                         <TextField fx:id="editAdviseDate" layoutX="318.0" layoutY="264.0" />
                         <CheckBox fx:id="editAdvised" layoutX="115.0" layoutY="268.0" mnemonicParsing="false" text="Advised" />

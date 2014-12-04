@@ -16,6 +16,7 @@ package javafxapplication1;
 import java.util.Scanner;
 import java.io.*;
 public class ImportStudentInfo {
+
     
 public void importBasicInfo(File stuInfo, StuLinkedList<String>  tree)
 //Accepts a text file containing student information.
@@ -59,16 +60,11 @@ Scanner infoReader = null;
 	}}
 
 
-public void importFullInfo(File stuInfo, StuLinkedList<String>  tree) //used to import a file with the full information(inculdes advising info)
+public void importFullInfo(StuLinkedList<String>  tree) //used to import a file with the full information(inculdes advising info)
 	{
-	File studentInformation = stuInfo;
-	Scanner infoReader = null;
+        	Scanner infoReader = null;
 
-		try {
-			infoReader = new Scanner(studentInformation);} 
-		catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();}
+                infoReader = new Scanner("StudentRoster.txt");
 			//Creates scanner for text file.
 		String infoLine = "";
 		Scanner parser = new Scanner(infoLine);
@@ -80,6 +76,9 @@ public void importFullInfo(File stuInfo, StuLinkedList<String>  tree) //used to 
 				while (infoReader.hasNext())
 					{
 					infoLine = infoReader.nextLine();
+                                        if (infoLine.charAt(0)== '/')
+                                        {infoLine = infoReader.nextLine();}
+
 					parser.useDelimiter("&");
 					newName = parser.next();
 					newID = parser.next();

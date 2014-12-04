@@ -20,23 +20,24 @@ public class StuLinkedList<T extends Comparable<T>> {
 		length = 0;
 	}
         
-	public void ChangeData(T data, T data2, T data3)
+	public void ChangeData(T data, T data2, T data3, T data4, T data5)
 		{
-		root = recChangeData(data, data2, data3, this.root);
+		root = recChangeData(data2, this.root);
+                root.setData(data);
+                root.setData2(data2);
+                root.setData3(data3);
+                root.setData4(data4);
+                root.setData5(data5);
 		}
-	private LinkedListNode<T> recChangeData(T data, T data2, T data3, LinkedListNode<T> tree) {
+	private LinkedListNode<T> recChangeData(T data2, LinkedListNode<T> tree) {
 		// not finished, should edit data
-		if (tree == null) {
-			tree = new LinkedListNode<T>(data, data2, data3);
-                        start = tree;
-		} else if (data2.compareTo(tree.getData2()) < 0) {
-			tree.setLeft(recAdd(data, data2, data3, tree.getLeft()));
-                        if (data2.compareTo(start.getData2()) < 0)
-                            {start = tree;}
-		} else if (data2.compareTo(tree.getData2()) > 0) {
-			tree.setRight(recAdd(data, data2, data3, tree.getRight()));
+		if (data2.compareTo(root.getData2()) == 0) {
+			return root;
+		} else if (data2.compareTo(root.getData2()) < 0) {
+			return recChangeData(data2, root.getLeft());
+		} else {
+			return recChangeData(data2, root.getRight());
 		}
-		return tree;
 	}
 	
 	public void addFull(T data, T data2, T data3, T data4, T data5) {
@@ -139,11 +140,33 @@ public class StuLinkedList<T extends Comparable<T>> {
 		return tree;
 	}
 
+        public String getInfo(T data2)
+        {
+            root = recGetInfo(data2, this.start);
+            String studentInfo = root.getData()+"&"+root.getData2()+"&"+root.getData3()+"&"+root.getData4()+""+root.getData5();
+            return studentInfo;
+        }
+        
+         private LinkedListNode<T> recGetInfo(T data2, LinkedListNode<T> root) {
+		// when root is null returns false, otherwise uses recursion to search linked list for data match
+		if (root == null) {
+			return null;
+		}
+
+		if (data2.compareTo(root.getData2()) == 0) {
+			return this.root;
+		} else if (data2.compareTo(root.getData2()) < 0) {
+			return recGetInfo(data2, root.getLeft());
+		} else {
+			return recGetInfo(data2, root.getRight());
+		}
+
+	}
+        
 	public boolean contains(T data2) {
 		//returns either True or False based on recContains, searches for userID
 		return recContains(data2, this.root);
-	}
-	
+	}       
 	private boolean recContains(T data2, LinkedListNode<T> root) {
 		// when root is null returns false, otherwise uses recursion to search linked list for data match
 		if (root == null) {
@@ -159,7 +182,6 @@ public class StuLinkedList<T extends Comparable<T>> {
 		}
 
 	}
-	
 	
 	static public int getSize() {
 		return length;

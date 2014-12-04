@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections ?>
+
+<AnchorPane id="AnchorPane" prefHeight="393.0" prefWidth="557.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication1.FXMLDocumentController">
+    <children>
+      <TabPane prefHeight="396.0" prefWidth="563.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Students">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView prefHeight="369.0" prefWidth="563.0">
+                          <columns>
+                            <TableColumn prefWidth="227.0" text="Name" />
+                            <TableColumn minWidth="0.0" prefWidth="99.0" text="ID" />
+                              <TableColumn minWidth="0.0" prefWidth="85.0" text="Advised?" />
+                              <TableColumn prefWidth="123.0" text="Date Advised" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Advise">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bddbf8" height="374.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="563.0" />
+                        <DatePicker layoutX="246.0" layoutY="194.0" />
+                        <ChoiceBox layoutX="246.0" layoutY="91.0" prefHeight="25.0" prefWidth="244.0" />
+                        <Text layoutX="163.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student:" />
+                        <Text layoutX="148.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Advised:" />
+                        <Button fx:id="addSaveButton1" layoutX="460.0" layoutY="282.0" mnemonicParsing="false" onAction="#addSave" text="Save" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Add Student">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bddbf8" height="374.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="563.0" />
+                        <RadioButton fx:id="radioFile" layoutX="44.0" layoutY="40.0" mnemonicParsing="false" onAction="#radioButtonFile" text="Input from file">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="radioButtons" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="radioKey" layoutX="44.0" layoutY="157.0" mnemonicParsing="false" onAction="#radioButtonKey" text="Enter via Keyboard" toggleGroup="$radioButtons" />
+                        <Button fx:id="buttonBrowse" disable="true" layoutX="227.0" layoutY="36.0" mnemonicParsing="false" onAction="#fileSelect" text="Browse..." />
+                        <TextField fx:id="textInputName" disable="true" layoutX="242.0" layoutY="204.0" prefHeight="25.0" prefWidth="208.0" />
+                        <TextField fx:id="textInputID" disable="true" layoutX="242.0" layoutY="253.0" />
+                        <ChoiceBox fx:id="textInputGrade" disable="true" layoutX="242.0" layoutY="302.0" prefWidth="150.0">  
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Freshman" />
+                                    <String fx:value="Sophomore" />
+                                    <String fx:value="Junior" />
+                                    <String fx:value="Senior" />
+                                </FXCollections>
+                            </items>
+                            </ChoiceBox>
+                        <Text layoutX="130.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Name:" />
+                        <Text layoutX="130.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student ID:" />
+                        <Text layoutX="130.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Grade Level:" />
+                        <Button fx:id="addSaveButton" layoutX="489.0" layoutY="129.0" mnemonicParsing="false" onAction="#addSave" prefHeight="25.0" prefWidth="60.0" text="Save" />
+                        <Button fx:id="addClearButton" layoutX="489.0" layoutY="160.0" mnemonicParsing="false" onAction="#addClear" text="Clear All" />
+                        <Text fx:id="importPath" layoutX="227.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="150.13671875" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Delete Student">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bddbf8" height="374.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="563.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+    </children>
+</AnchorPane>
